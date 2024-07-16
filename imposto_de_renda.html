@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste</title>
+    <style>
+        p {
+            font-size: 20px;
+            font-family: Arial;
+        }
+        body {
+    background-color: rgb(180, 245, 194);
+    text-align: center;
+    border: solid 5px white;
+    padding: 10px;
+    border-top: hidden;
+    border-bottom: hidden;
+        }
+        h1 {
+            background-color: rgb(139, 240, 240);
+            margin: 0;
+            border: solid 30px rgb(139, 240, 240);
+            padding: 20px 20px 20px 20px;
+            border-radius: 15px;
+            display: block;
+            font-family: Arial;
+        }
+    </style>
+</head>
+<body>
+    <h1>Hello, world!</h1>
+    <p>ação</p>
+    <script>
+        var salario = Number(window.prompt('Qual o seu salário? Exemplo: 3000'))
+        var divisao = salario / 100
+        var imposto = Number(window.prompt('Qual a porcentagem do seu imposto de renda? Exemplo : 8.5'))
+        var multiplicacao = divisao * imposto
+        var subtracao = salario - multiplicacao
+        document.write(`<p>Seu salario é: ${salario.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})}, você possui ${multiplicacao.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})} de imposto que é ${imposto.toFixed(2).replace(".", ",")}%. Subtraido com seu salário resulta em ${subtracao.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})}</p>`)
+    </script>
+</body>
+</html>

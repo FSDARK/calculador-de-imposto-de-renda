@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste</title>
+    <style>
+        p {
+            font-size: 20px;
+            font-family: Arial;
+        }
+        body {
+    background-color: rgb(180, 245, 194);
+    text-align: center;
+    border: solid 5px white;
+    padding: 10px;
+    border-top: hidden;
+    border-bottom: hidden;
+        }
+        h1 {
+            background-color: rgb(139, 240, 240);
+            margin: 0;
+            border: solid 30px rgb(139, 240, 240);
+            padding: 20px 20px 20px 20px;
+            border-radius: 15px;
+            display: block;
+            font-family: Arial;
+        }
+    </style>
+</head>
+<body>
+    <h1>Hello, world!</h1>
+    <p>ação</p>
+    <script>
+        var subtracao = Number(window.prompt('Me diga seu salário após ser reduzido do imposto de renda: PS:Colocar somente números e fazer a troca da virgula para o ponto'))
+        var imposto = Number(window.prompt('Me diga a porcentagem do seu imposto de renda: PS:Somente números e faça a troca da virgula pelo ponto'))
+        var divisao = imposto / 10
+        var salario = subtracao / divisao
+        document.write(`<p>Seu salário total é de ${salario.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})}</p>`)
+    </script>
+</body>
+</html>
