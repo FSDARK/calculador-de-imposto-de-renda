@@ -37,7 +37,7 @@
         var imposto = Number(window.prompt('Qual a porcentagem do seu imposto de renda? Exemplo : 8.5'))
         var multiplicacao = divisao * imposto
         var subtracao = salario - multiplicacao
-        document.write(`<p>Seu salario é: ${salario.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})}, você possui ${multiplicacao.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})} de imposto que é ${imposto.toFixed(2).replace(".", ",")}%. Subtraido com seu salário resulta em ${subtracao.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})}</p>`)
+        document.write(`<p>Seu salario é: ${salario.toLocaleString('pt-BR', {style: 'currency', currency: 'USD'})}, você possui ${multiplicacao.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})} de imposto que é ${imposto.toFixed(2).replace(".", ",")}%. Subtraido com seu salário resulta em ${subtracao.toLocaleString('pt-BR', {style: 'currency', currency: 'USD'})}</p>`)
     </script>
 </body>
 </html>
