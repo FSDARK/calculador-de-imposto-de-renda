@@ -42,19 +42,19 @@
     <div id="res"></div>
     <script>
         function somar() {
-            var salario = document.getElementById('texto1').value;
-            var porcentagem = document.getElementById('texto2').value;
-            var res = document.getElementById('res');
-            var numero1 = Number(salario);
-            var numero2 = Number(porcentagem);
-            var imposto1 = numero1 / 100;
-            var imposto2 = imposto1 * numero2;
-            var subtracao = numero1 - imposto2;
-            var dolarreal = 6470.36;
-            var dolar = 1160;
-            var diferenca = numero1 - dolarreal;
-            var maior = numero1 > dolarreal ? `Parabéns seu salário é maior que o salário mínimo dos Estados Unidos em <strong>${diferenca.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})}</strong>` : `Infelizmente seu salário atual é menor que o salário mínimo dos Estados em <strong>${diferenca.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'}).replace("-", "")}</strong> a menos.`;
-            res.innerHTML = `Seu salário é de <strong>${numero1.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})}</strong>, você possui <strong>${imposto2.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})}</strong> de imposto. Seu salário após subtraído com o imposto resulta em: <strong>${subtracao.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})}</strong>. ${maior}`;
+            var salario = document.getElementById('texto1').value
+            var porcentagem = document.getElementById('texto2').value
+            var res = document.getElementById('res')
+            var numero1 = Number(salario)
+            var numero2 = Number(porcentagem)
+            var imposto1 = numero1 / 100
+            var imposto2 = imposto1 * numero2
+            var subtracao = numero1 - imposto2
+            var dolarreal = 6470.36
+            var dolar = 1160
+            var diferenca = numero1 - dolarreal
+            var maior = numero1 > dolarreal ? `Parabéns seu salário é maior que o salário mínimo dos Estados Unidos em <strong>${diferenca.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})}</strong>` : `Infelizmente seu salário atual é menor que o salário mínimo dos Estados em <strong>${diferenca.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'}).replace("-", "")}</strong> a menos.`
+            res.innerHTML = `Seu salário é de <strong>${numero1.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})}</strong>, você possui <strong>${imposto2.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})}</strong> de imposto. Seu salário após subtraído com o imposto resulta em: <strong>${subtracao.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})}</strong>. ${maior}`
         }
     </script>
 </body>
