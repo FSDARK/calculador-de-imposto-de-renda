@@ -1,21 +1,18 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Teste</title>
+    <title>Imposto de renda V2</title>
     <style>
-        p {
-            font-size: 20px;
-            font-family: Arial;
-        }
         body {
-    background-color: rgb(180, 245, 194);
-    text-align: center;
-    border: solid 5px white;
-    padding: 10px;
-    border-top: hidden;
-    border-bottom: hidden;
+            background-color: rgb(180, 245, 194);
+            text-align: center;
+            border: solid 5px white;
+            padding: 10px;
+            border-top: hidden;
+            border-bottom: hidden;
+            font: normal 26pt Arial;
         }
         h1 {
             background-color: rgb(139, 240, 240);
@@ -24,19 +21,41 @@
             padding: 20px 20px 20px 20px;
             border-radius: 15px;
             display: block;
-            font-family: Arial;
+        }
+        input {
+            border-radius: 15px;
+            font: normal 16pt Arial;
+            width: 200px;
+            padding: 0 0 0 10px;
+        }
+        #res {
+            text-align: justify;
         }
     </style>
 </head>
 <body>
-    <h1>Hello, world!</h1>
-    <p>ação</p>
+    <h1>Calculadora de Imposto de renda.</h1>
+    <p>Nos valores abaixo coloque seu salário e após isso a porcentagem do seu imposto de renda:</p>
+    <input type="number" name="texto1" id="texto1">
+    <input type="number" name="texto2" id="texto2">
+    <input type="button" id="resultado" value="Resultado: " onclick="somar()">
+    <div id="res"></div>
     <script>
-        var subtracao = Number(window.prompt('Me diga seu salário após ser reduzido do imposto de renda: PS:Colocar somente números e fazer a troca da virgula para o ponto'))
-        var imposto = Number(window.prompt('Me diga a porcentagem do seu imposto de renda: PS:Somente números e faça a troca da virgula pelo ponto'))
-        var divisao = imposto / 10
-        var salario = subtracao / divisao
-        document.write(`<p>Seu salário total é de ${salario.toLocaleString('pt-BR', {style: 'currency', currency: 'USD'})}</p>`)
+        function somar() {
+            var salario = document.getElementById('texto1').value;
+            var porcentagem = document.getElementById('texto2').value;
+            var res = document.getElementById('res');
+            var numero1 = Number(salario);
+            var numero2 = Number(porcentagem);
+            var imposto1 = numero1 / 100;
+            var imposto2 = imposto1 * numero2;
+            var subtracao = numero1 - imposto2;
+            var dolarreal = 6470.36;
+            var dolar = 1160;
+            var diferenca = numero1 - dolarreal;
+            var maior = numero1 > dolarreal ? `Parabéns seu salário é maior que o salário mínimo dos Estados Unidos em <strong>${diferenca.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})}</strong>` : `Infelizmente seu salário atual é menor que o salário mínimo dos Estados em <strong>${diferenca.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'}).replace("-", "")}</strong> a menos.`;
+            res.innerHTML = `Seu salário é de <strong>${numero1.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})}</strong>, você possui <strong>${imposto2.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})}</strong> de imposto. Seu salário após subtraído com o imposto resulta em: <strong>${subtracao.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})}</strong>. ${maior}`;
+        }
     </script>
 </body>
 </html>
