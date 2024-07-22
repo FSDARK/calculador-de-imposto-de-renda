@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Imposto de renda V2</title>
+    <style>
+        @font-face {
+            font-family: 'Minecraft';
+            src: url(minecraft/MinecraftRegular-Bmg3.otf);
+        }
+        body {
+            background-color: rgb(180, 245, 194);
+            text-align: center;
+            border: solid 5px white;
+            padding: 10px;
+            border-top: hidden;
+            border-bottom: hidden;
+            font: normal 26pt Arial;
+        }
+        h1 {
+            background-color: rgb(139, 240, 240);
+            margin: 0;
+            border: solid 30px rgb(139, 240, 240);
+            padding: 20px 20px 20px 20px;
+            border-radius: 15px;
+            display: block;
+        }
+        .botao {
+            border-radius: 15px;
+            font: normal 16pt Arial;
+            width: 200px;
+            padding: 0 0 0 10px;
+        }
+        #res {
+            text-align: justify;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="titulo">Calculadora de Imposto de renda.</h1>
+    <p>Nos valores abaixo coloque seu salário e após isso a porcentagem do seu imposto de renda:</p>
+    <input type="number" name="texto1" id="texto1" class="botao" >
+    <input type="number" name="texto2" id="texto2" class="botao" >
+    <input type="button" id="resultado" value="Resultado: " onclick="somar()" class="botao"><br>
+    <button id="remover" onclick="remove()" class="botao">Não clique</button>
+    <div id="res"></div>
+    <img>
+    <script>
+        function somar() {
+            var salario = document.getElementById('texto1').value
+            var porcentagem = document.getElementById('texto2').value
+            var res = document.getElementById('res')
+            var numero1 = Number(salario)
+            var numero2 = Number(porcentagem)
+            var imposto1 = numero1 / 100
+            var imposto2 = imposto1 * numero2
+            var subtracao = numero1 - imposto2
+            var dolarreal = 6470.36
+            var diferenca = numero1 - dolarreal
+            if (numero1 > dolarreal) {
+                res.innerHTML = `<p>Seu salário é de <strong>${numero1.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})}</strong>, você possui <strong>${imposto2.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})}</strong> de imposto. Seu salário após subtraído com o imposto resulta em: <strong>${subtracao.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})}</strong>. Parabéns seu salário é maior que o salário mínimo dos <strong>EUA(US$ 1.160,00)</strong> em <strong>${diferenca.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})}</strong> a mais.</p>`
+            } else if(numero1 === dolarreal) {
+                res.innerHTML = `<p>Seu salário é de <strong>${numero1.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})}</strong>, você possui <strong>${imposto2.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})}</strong> de imposto. Seu salário após subtraído com o imposto resulta em: <strong>${subtracao.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})}</strong>. Seu salário possui o mesmo valor do dollar convertido em real.`
+            } else {
+                res.innerHTML = `<p>Seu salário é de <strong>${numero1.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})}</strong>, você possui <strong>${imposto2.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})}</strong> de imposto. Seu salário após subtraído com o imposto resulta em: <strong>${subtracao.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})}</strong>. Infelizmente seu salário é menor que o salário mínimo dos <strong>EUA(US$ 1.160,00)</strong> em <strong>${diferenca.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'}).replace("-", "")}</strong> a menos.</p>`
+            }
+        }
+        function remove() {
+            var corpo = document.querySelector('body')
+            corpo.innerHTML = ''
+            corpo.innerHTML = `<div style="text-align: center; margin-top: 50px;">
+                <h1>Body Limpo</h1>
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTITpuknP6mcSesMXVCSpR_47W7MsuYwfBn7Q&s">
+            </div>`
+        }
+    </script>
+</body>
+</html>
