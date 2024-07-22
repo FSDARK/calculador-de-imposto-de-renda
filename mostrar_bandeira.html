@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: rgb(180, 245, 194);
+            text-align: center;
+            border: solid 5px white;
+            padding: 10px;
+            border-top: hidden;
+            border-bottom: hidden;
+            font: normal 26pt Arial;
+        }
+        h1 {
+            background-color: rgb(139, 240, 240);
+            margin: 0;
+            border: solid 30px rgb(139, 240, 240);
+            padding: 20px 20px 20px 20px;
+            border-radius: 15px;
+            display: block;
+        }
+        #pais, .botao {
+            border-radius: 15px;
+            font: normal 16pt Arial;
+            width: 200px;
+            padding: 0 0 0 10px;
+        }
+        #res {
+            text-align: justify;
+        }
+    </style>
+</head>
+<body>
+    <h1>Verificar país</h1>
+    <p>Coloque seu páis no quadro abaixo:</p>
+    <input type="text" id="pais">
+    <button id="verificar" class="botao">Verificar</button>
+    <div id="res"></div>
+    <script>
+        var botaoverificar = document.querySelector('button#verificar')
+        botaoverificar.addEventListener("click", clicou)
+        function clicou() {
+            var pais = document.querySelector('input#pais').value.toLowerCase()
+            var res  = document.querySelector('div#res')
+            switch(pais) {
+                case 'brasil':
+                    res.innerHTML = '🇧🇷'
+                    break
+                case 'estados unidos':
+                    res.innerHTML = '🇺🇸'
+                    break
+                case 'frança':
+                    res.innerHTML = '🇫🇷'
+                    break
+                case 'angola':
+                    res.innerHTML = '🇦🇴'
+                    break
+                default:
+                    res.innerHTML = 'Não tenho seu país registrado no meu banco de dados.'
+            }
+        }
+    </script>
+</body>
+</html>
