@@ -5,10 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Imposto de renda V2</title>
     <style>
-        @font-face {
-            font-family: 'Minecraft';
-            src: url(MinecraftRegular-Bmg3.otf);
-        }
         body {
             background-color: rgb(180, 245, 194);
             text-align: center;
@@ -47,15 +43,6 @@
     <div id="res"></div>
     <img>
     <script>
-        var titulo = document.getElementById('titulo');
-        titulo.addEventListener('mouseenter', entrou)
-        titulo.addEventListener('mouseleave', saiu)
-        function entrou() {
-            titulo.style.fontFamily = 'Minecraft'
-        }
-        function saiu() {
-            titulo.style.fontFamily = 'Arial'
-        }
         function somar() {
             var salario = document.getElementById('texto1').value
             var porcentagem = document.getElementById('texto2').value
@@ -69,34 +56,7 @@
             var dolar = 1160
             var diferenca = numero1 - dolarreal
             var maior = numero1 > dolarreal ? `Parabéns seu salário é maior que o salário mínimo dos Estados Unidos em <strong>${diferenca.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})}</strong>` : `Infelizmente seu salário atual é menor que o salário mínimo dos Estados em <strong>${diferenca.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'}).replace("-", "")}</strong> a menos.`
-            res.innerHTML = `<p onmouseenter="entrouparagrafo()" onmouseleave="saiuparagrafo()">Seu salário é de <strong>${numero1.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})}</strong>, você possui <strong>${imposto2.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})}</strong> de imposto. Seu salário após subtraído com o imposto resulta em: <strong>${subtracao.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})}</strong>. ${maior}</p>`
-        }
-        function entrouparagrafo() {
-            var res = document.getElementById('res')
-            res.style.fontFamily = 'Minecraft'
-        }
-        function saiuparagrafo() {
-            var res = document.getElementById('res')
-            res.style.fontFamily = 'Arial'
-        }
-        var paragrafos = document.querySelectorAll('p')
-        paragrafos.forEach(function(paragrafos) {
-            paragrafos.addEventListener('mouseenter', entrou)
-            paragrafos.addEventListener('mouseleave', saiu)
-        })
-        function entrou(event) {
-            this.style.fontFamily = 'Minecraft'
-        }
-        function saiu(event) {
-            this.style.fontFamily = 'Arial'
-        }
-        function remove() {
-            var corpo = document.querySelector('body')
-            corpo.innerHTML = ''
-            corpo.innerHTML = `<div style="text-align: center; margin-top: 50px;">
-                <h1>Body Limpo</h1>
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTITpuknP6mcSesMXVCSpR_47W7MsuYwfBn7Q&s">
-            </div>`
+            res.innerHTML = `<p>Seu salário é de <strong>${numero1.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})}</strong>, você possui <strong>${imposto2.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})}</strong> de imposto. Seu salário após subtraído com o imposto resulta em: <strong>${subtracao.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})}</strong>. ${maior}</p>`
         }
     </script>
 </body>
